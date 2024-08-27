@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "lacuna-eval"
+version = "0.1.0"
+description = "Code for lacuna evaluation"
+authors = ["Will Fitzgerald <willf@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+flake8 = "^7.1.1"
+pytest = "^8.3.2"
+isort = "^5.13.2"
+coverage = "^7.6.1"
+ipython = "^8.26.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
