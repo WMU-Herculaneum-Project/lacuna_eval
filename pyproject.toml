@@ -7,6 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+scikit-learn = "^1.5.1"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -18,5 +19,5 @@ coverage = "^7.6.1"
 ipython = "^8.26.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
