@@ -25,6 +25,23 @@ ndcg(guesses, truth)
 The guesses must be ordered from most to least likely. Use `k` to limit `dcg`,
 `ndcg`, or `in_top_k` to the first `k` guesses.
 
+To evaluate a collection of predictions, use `evaluate` to get mean scores and
+accuracy statistics:
+
+```python
+from lacuna_eval.metrics import evaluate
+
+results = evaluate(
+    [["dog", "fox"], ["cat", "rabbit"]],
+    [{"fox"}, {"cat", "fox"}],
+    k=2,
+)
+
+results["top_k_accuracy"]  # 1.0
+results["top_1_accuracy"]  # 0.5
+results["mean_ndcg"]        # mean NDCG across both pairs
+```
+
 ## Requirements
 
 - Python 3.12 or later
@@ -51,5 +68,5 @@ The project also includes Black, isort, and Flake8 for development checks:
 ```sh
 uv run black --check .
 uv run isort --check-only .
-uv run flake8 .
+uv run flake8 lacuna_eval tests
 ```

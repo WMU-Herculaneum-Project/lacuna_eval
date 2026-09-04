@@ -64,3 +64,41 @@ def in_top_k(guesses, truth, k=None):
 def top_1(guesses, truth):
     """Returns 1 if the truth is in the top guess, 0 otherwise."""
     return in_top_k(guesses, truth, 1)
+
+
+def evaluate(guess_sets, truth_sets, k=None):
+    """Aggregate ranking metrics over multiple guess and truth pairs.
+
+    Returns the number of pairs and the mean DCG, NDCG, top-1 accuracy, and
+    top-k accuracy. The two inputs must contain the same number of pairs.
+    """
+    if len(guess_sets) != len(truth_sets):
+        raise ValueError("guess_sets and truth_sets must have the same length")
+
+    pair_count = len(guess_sets)
+    if pair_count == 0:
+        return {
+            "count": 0,
+            "mean_dcg": 0.0,
+            "mean_ndcg": 0.0,
+            "top_1_accuracy": 0.0,
+            "top_k_accuracy": 0.0,
+        }
+
+    dcg_scores = []
+    ndcg_scores = []
+    top_1_scores = []
+    top_k_scores = []
+    for guesses, truth in zip(guess_sets, truth_sets):
+        dcg_scores.append(dcg(guesses, truth, k))
+        ndcg_scores.append(ndcg(guesses, truth, k))
+        top_1_scores.append(top_1(guesses, truth))
+        top_k_scores.append(in_top_k(guesses, truth, k))
+
+    return {
+        "count": pair_count,
+        "mean_dcg": sum(dcg_scores) / pair_count,
+        "mean_ndcg": sum(ndcg_scores) / pair_count,
+        "top_1_accuracy": sum(top_1_scores) / pair_count,
+        "top_k_accuracy": sum(top_k_scores) / pair_count,
+    }
