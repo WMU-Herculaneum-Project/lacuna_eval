@@ -2,7 +2,8 @@ import math
 
 # Imagine we are trying to fill in the lacuna in the following sentence:
 # "The quick brown ___ jumps over the lazy dog."
-# The system guesses, in descending order of fit: [ "dog", "fox", "cat", "rabbit", "wolf"]
+# The system guesses, in descending order of fit:
+# ["dog", "fox", "cat", "rabbit", "wolf"]
 # And the correct answer is either {"fox", "cat"}
 #
 # For in_top_k, a correct answer is in the top 2 guesses, so the score is 1.0

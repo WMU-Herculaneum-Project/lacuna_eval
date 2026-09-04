@@ -32,7 +32,9 @@ class TestEvaluator(unittest.TestCase):
         self.assertAlmostEqual(ndcg(["a", "b", "c"], {"a", "b", "c"}), 1.0)
         # self.assertAlmostEqual(
         #    ndcg(["a", "d", "c"], {"a", "b", "c"}, 2),
-        #    (1.0 / math.log(2, 2)) / (1.0 / math.log(2, 2) + 1.0 / math.log(2, 3)),
+        #    (1.0 / math.log(2, 2)) / (
+        #        1.0 / math.log(2, 2) + 1.0 / math.log(2, 3)
+        #    ),
         # )
 
     def test_in_top_k(self):

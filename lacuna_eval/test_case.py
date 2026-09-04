@@ -7,7 +7,11 @@
 #     "max_length": 1,
 #     "min_length": 1,
 #     "mode_length": 1,
-#     "test_case": "ἔτους ἐβδ.μου Ἀ[.]τωνείνου\nΚαίσαξος τοῦ κυρίου Μεχεὶρ κγ\nδιέγραψε Ἀρείῳ ἐγλήμπτορι χειροναξίου \nἙριεῦς Ἁξπαγάθου τοῦ Ἑριέως\nμητρὸς Τανούπιος γέρδιος Σοκνοπαίου \nΝήσου ὑπὲρ χειροναξίου τοῦ\nπέμπτου ἔτους ἐπὶ λόγου ἀργυρίου δραχμὰς \nὀκτώ, γίνονται δραχμαὶ η",
+#     "test_case": "ἔτους ἐβδ.μου Ἀ[.]τωνείνου\nΚαίσαξος τοῦ κυρίου
+#     Μεχεὶρ κγ\nδιέγραψε Ἀρείῳ ἐγλήμπτορι χειροναξίου\nἙριεῦς
+#     Ἁξπαγάθου τοῦ Ἑριέως\nμητρὸς Τανούπιος γέρδιος Σοκνοπαίου\nΝήσου
+#     ὑπὲρ χειροναξίου τοῦ\nπέμπτου ἔτους ἐπὶ λόγου ἀργυρίου δραχμὰς
+#     \nὀκτώ, γίνονται δραχμαὶ η",
 #     "alternatives": [
 #       "ν"
 #     ]
@@ -40,7 +44,10 @@ class LacunaTastCase:
         self.alternatives = alternatives
 
     def __str__(self):
-        return f"Case {self.case_index}:\n{self.test_case}\nAlternatives: {self.alternatives}"
+        return (
+            f"Case {self.case_index}:\n{self.test_case}\n"
+            f"Alternatives: {self.alternatives}"
+        )
 
     def __repr__(self):
         return self.__str__()
