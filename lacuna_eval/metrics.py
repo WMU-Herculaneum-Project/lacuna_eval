@@ -20,7 +20,7 @@ def relevance(guess, truth):
 
 def discount(rank):
     """Discount function. Rank is 1-indexed."""
-    return 1 / (2 * (rank - 1)) if rank > 1 else 1.0
+    return math.log(2, rank + 1)
 
 
 def dcg(guesses, truth, k=None):
